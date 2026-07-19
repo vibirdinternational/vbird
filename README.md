@@ -4,6 +4,8 @@ Marketing site and content backend for vbird, structured as two independent proj
 
 ## Architecture
 
+![Architecture diagram](src/Images/other/diagram.avif)
+
 ```
 ├── index.html, about/, learn/, privacy/, terms/   # Public pages (static HTML)
 ├── src/
