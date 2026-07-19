@@ -251,7 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return 'For hot and humid lifestyles, start with a lightweight cleanser, breathable gel moisturizer, and daily sunscreen. Vibird is building each around comfort, fast absorption, and non-sticky wear.';
     }
     if (q.includes('contact') || q.includes('phone') || q.includes('whatsapp') || q.includes('email')) {
-      return 'You can reach Vibird through the contact section, email vibirdinternational@gmail.com, or use the WhatsApp link in the footer.';
+      return 'You can reach Vibird through the contact section, email Info@vibirdinternational.com, or use the WhatsApp link in the footer.';
     }
     if (q.includes('consult') || q.includes('studio') || q.includes('analysis')) {
       return 'The Vibird Skin Experience Studio is opening soon with skin consultation, product trials, skin education, and AI skin analysis.';
