@@ -1,0 +1,531 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Self-hosted fonts (variable, latin) ── */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: swap;
+  src: url('/src/fonts/inter.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/src/fonts/playfair.woff2') format('woff2');
+}
+
+/* ──────────────────────────────────────────────
+   Custom styles (formerly styles.css)
+────────────────────────────────────────────── */
+* { -webkit-font-smoothing: antialiased; }
+html, body { overflow-x: clip; max-width: 100%; }
+
+/* Scale the whole page up ~8% on very wide screens (> 1444px) */
+@media (min-width: 1445px) {
+  body { zoom: 1.08; }
+}
+
+/* Gentle default rounding for interactive elements */
+button, input, textarea, select { border-radius: 0.75rem; }
+button { cursor: pointer; }
+body { font-family: 'Inter', system-ui, sans-serif; }
+.font-serif { font-family: 'Playfair Display', Georgia, serif; }
+html { scroll-behavior: smooth; }
+
+/* Hide scrollbar but keep scrolling functional */
+html { -ms-overflow-style: none; scrollbar-width: none; }
+body::-webkit-scrollbar, html::-webkit-scrollbar { display: none; width: 0; height: 0; }
+
+/* Hide scrollbar on the product carousel track */
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* Product cards: show only image + title by default; reveal the rest on
+   hover (desktop) and tap/focus (mobile + tablet, cards are focusable). */
+.pc-reveal {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(8px);
+  transition: max-height 0.45s ease, opacity 0.35s ease, transform 0.45s ease, margin 0.35s ease;
+}
+/* Scroll-driven active state (product cards) — always reveals */
+.product-card.is-active .pc-reveal {
+  max-height: 300px;
+  opacity: 1;
+  transform: translateY(0);
+}
+.product-card.is-active .pcard-chevron { transform: rotate(180deg); }
+/* Product cards: reveal on hover (desktop) / tap (touch) */
+@media (hover: hover) and (pointer: fine) {
+  .product-card:hover .pc-reveal {
+    max-height: 300px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .product-card:hover .pcard-chevron { transform: rotate(180deg); }
+}
+@media (hover: none) {
+  .product-card:focus .pc-reveal,
+  .product-card:focus-within .pc-reveal {
+    max-height: 300px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .product-card:focus .pcard-chevron,
+  .product-card:focus-within .pcard-chevron { transform: rotate(180deg); }
+}
+
+/* Article cards — Desktop (mouse): reveal on hover */
+@media (hover: hover) and (pointer: fine) {
+  .article-card:hover .pc-reveal {
+    max-height: 300px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .article-card:hover .card-chevron { transform: rotate(180deg); }
+}
+/* Article cards — Mobile/tablet (touch): click-toggle via .is-open */
+@media (hover: none) {
+  .article-card.is-open .pc-reveal {
+    max-height: 300px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .article-card.is-open .card-chevron { transform: rotate(180deg); }
+}
+
+/* keep the image zoom in sync when activated by scroll */
+.product-card.is-active .product-shape { transform: scale(1.05); }
+.product-card, .article-card { outline: none; }
+
+/* Lock background scroll while a modal is open */
+html.modal-open, body.modal-open {
+  overflow: hidden;
+  height: 100%;
+  touch-action: none;
+  overscroll-behavior: none;
+}
+
+/* What We Solve — active item (brand theme) */
+.solve-item.is-active .solve-tab   { background: #4A2C18; }
+.solve-item.is-active .solve-label { color: #ffffff; }
+.solve-item.is-active .solve-dot   { opacity: 1; }
+.solve-item:not(.is-active) .solve-tab:hover { background: rgba(74,44,24,0.06); }
+
+/* Mobile accordion chevron */
+.solve-chevron { color: #8B6B4A; }
+.solve-item.is-active .solve-chevron { color: #ffffff; transform: rotate(180deg); }
+
+/* Mobile accordion: description expands under the active heading */
+.solve-mobile-desc {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  color: rgba(255,255,255,0.75);
+  transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+}
+.solve-item.is-active { background: #4A2C18; }
+.solve-item.is-active .solve-tab { background: transparent; }
+.solve-item.is-active .solve-mobile-desc {
+  max-height: 240px;
+  opacity: 1;
+  padding-top: 0;
+  padding-bottom: 1.5rem;
+}
+.solve-mobile-desc { color: #ffffff !important; }
+@media (min-width: 768px) {
+  .solve-mobile-desc { display: none; }
+  .solve-item.is-active { background: transparent; }
+  .solve-item.is-active .solve-tab { background: #4A2C18; }
+}
+
+/* iOS-style segmented filter control (liquid glass) */
+#filter-pill {
+  background: rgba(74, 44, 24, 0.10);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(74, 44, 24, 0.18);
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.4);
+}
+.filter-chip { color: #4A2C18; }
+.filter-chip.is-active { color: #ffffff; }
+#filter-thumb { z-index: 0; }
+
+/* Marquee — "Beyond Ingredients" cards scroll in one continuous row */
+.marquee { overflow: hidden; width: 100%; }
+.marquee-track {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+  animation: marquee-scroll 28s linear infinite;
+}
+.marquee-card { flex: 0 0 280px; }
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-50% - 0.625rem)); }
+}
+
+/* ── Homepage navbar: transparent at top, solid pill on scroll/hover ── */
+#site-header.hero-nav .nav-pill {
+  background: transparent;
+  border: 1px solid transparent;
+  box-shadow: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+#site-header.hero-nav.scrolled .nav-pill,
+#site-header.hero-nav:hover .nav-pill {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 30px rgba(28, 16, 8, 0.10);
+}
+
+/* ── Animated nav-link underline ── */
+.nav-link { position: relative; }
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 100%; height: 1.5px;
+  background: #8B6B4A; /* vb-tan */
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.nav-link:hover::after { transform: scaleX(1); }
+
+/* ── CTA arrow nudge on hover ── */
+.btn-arrow svg { transition: transform 0.3s ease; }
+.group:hover .btn-arrow svg { transform: translateX(3px); }
+
+/* ── Section divider (soft tan rule) ── */
+.section-divider {
+  height: 1px;
+  max-width: 1100px;
+  margin: 0 auto;
+  background: linear-gradient(to right, transparent, rgba(139,107,74,0.35), transparent);
+}
+
+/* ── Heading underline-draw on reveal ── */
+.uline { position: relative; display: inline-block; }
+.uline::after {
+  content: "";
+  position: absolute;
+  left: 50%; bottom: -10px;
+  width: 0; height: 2px;
+  background: #8B6B4A;
+  transform: translateX(-50%);
+  transition: width 0.7s ease 0.2s;
+}
+.reveal.in-view .uline::after,
+.uline.in-view::after { width: 56px; }
+
+/* ── Branded keyboard focus rings (a11y, no effect on mouse users) ── */
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid #8B6B4A;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Responsive hero background (per screen orientation) ── */
+.hero-bg { background-image: url('/src/Images/Background/mobile.webp'); }
+@media (min-width: 768px) {
+  .hero-bg { background-image: url('/src/Images/Background/tablet.webp'); }
+}
+@media (min-width: 1024px) {
+  .hero-bg { background-image: url('/src/Images/Background/desktop.webp'); }
+}
+
+/* ── Hero entrance stagger (plays once on load) ── */
+.hero-item {
+  opacity: 0;
+  transform: translateY(16px);
+}
+body.loaded .hero-item {
+  animation: hero-rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+body.loaded .hero-stagger .hero-item:nth-child(1) { animation-delay: 0.05s; }
+body.loaded .hero-stagger .hero-item:nth-child(2) { animation-delay: 0.12s; }
+body.loaded .hero-stagger .hero-item:nth-child(3) { animation-delay: 0.19s; }
+body.loaded .hero-stagger .hero-item:nth-child(4) { animation-delay: 0.26s; }
+/* the feature-icons row sits after the stagger block */
+body.loaded .hero-stagger ~ .hero-item { animation-delay: 0.33s; }
+@keyframes hero-rise {
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-item { opacity: 1; transform: none; animation: none; }
+}
+
+/* ── Scroll fade-in reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Stagger direct children of a reveal container for a visible cascade */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal-stagger.in-view > * { opacity: 1; transform: translateY(0); }
+.reveal-stagger.in-view > *:nth-child(1) { transition-delay: 0.05s; }
+.reveal-stagger.in-view > *:nth-child(2) { transition-delay: 0.15s; }
+.reveal-stagger.in-view > *:nth-child(3) { transition-delay: 0.25s; }
+.reveal-stagger.in-view > *:nth-child(4) { transition-delay: 0.35s; }
+.reveal-stagger.in-view > *:nth-child(5) { transition-delay: 0.45s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-stagger > * { opacity: 1; transform: none; transition: none; }
+}
+
+/* Mobile menu */
+#mobile-menu { display: none; }
+#mobile-menu.open { display: block; }
+
+/* Floating chat assistant */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.chatbot {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.85rem;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+.chatbot-panel {
+  width: min(360px, calc(100vw - 2rem));
+  max-height: min(620px, calc(100vh - 7rem));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: rgba(250, 247, 242, 0.96);
+  border: 1px solid rgba(139, 107, 74, 0.24);
+  border-radius: 1rem;
+  box-shadow: 0 22px 60px rgba(28, 16, 8, 0.22);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transform-origin: bottom right;
+  animation: chatbot-enter 0.22s ease both;
+}
+.chatbot-panel[hidden] { display: none; }
+.chatbot-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  color: #ffffff;
+  background: #1c1008;
+}
+.chatbot-kicker {
+  margin-bottom: 0.2rem;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.chatbot-head h2 {
+  color: #ffffff;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.chatbot-icon-btn,
+.whatsapp-float,
+.chatbot-toggle,
+.chatbot-form button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.chatbot-icon-btn {
+  width: 2.25rem;
+  height: 2.25rem;
+  flex: 0 0 auto;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.chatbot-icon-btn:hover { background: rgba(255, 255, 255, 0.22); }
+.chatbot-messages {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.65rem;
+  min-height: 180px;
+  max-height: 330px;
+  overflow-y: auto;
+  padding: 1rem;
+}
+.chatbot-message {
+  max-width: 86%;
+  padding: 0.7rem 0.85rem;
+  border-radius: 0.9rem;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.chatbot-message.bot {
+  align-self: flex-start;
+  color: #57534e;
+  background: #ffffff;
+  border: 1px solid rgba(234, 217, 194, 0.9);
+}
+.chatbot-message.user {
+  align-self: flex-end;
+  color: #ffffff;
+  background: #4a2c18;
+}
+.chatbot-quick {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0 1rem 0.85rem;
+}
+.chatbot-quick button {
+  flex: 0 0 auto;
+  padding: 0.55rem 0.75rem;
+  color: #4a2c18;
+  background: rgba(139, 107, 74, 0.1);
+  border: 1px solid rgba(139, 107, 74, 0.18);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.chatbot-quick button:hover {
+  color: #ffffff;
+  background: #8b6b4a;
+}
+.chatbot-form {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.85rem;
+  background: #ffffff;
+  border-top: 1px solid rgba(234, 217, 194, 0.85);
+}
+.chatbot-form input {
+  width: 100%;
+  min-width: 0;
+  padding: 0.72rem 0.9rem;
+  color: #44403c;
+  background: #faf7f2;
+  border: 1px solid rgba(234, 217, 194, 0.95);
+  border-radius: 999px;
+  font-size: 13px;
+  outline: none;
+}
+.chatbot-form input:focus { border-color: #8b6b4a; }
+.chatbot-form button {
+  width: 2.65rem;
+  height: 2.65rem;
+  flex: 0 0 auto;
+  color: #ffffff;
+  background: #1c1008;
+  border-radius: 999px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.chatbot-form button:hover,
+.whatsapp-float:hover,
+.chatbot-toggle:hover {
+  transform: translateY(-1px);
+}
+.chatbot-form button:hover,
+.chatbot-toggle:hover { background: #4a2c18; }
+.whatsapp-float {
+  width: 3.45rem;
+  height: 3.45rem;
+  color: #ffffff;
+  background: #25d366;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.28);
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.whatsapp-float:hover {
+  background: #1fb457;
+  box-shadow: 0 10px 26px rgba(37, 211, 102, 0.34);
+}
+.chatbot-toggle {
+  width: 3.75rem;
+  height: 3.75rem;
+  color: #ffffff;
+  background: #1c1008;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  box-shadow: 0 14px 34px rgba(28, 16, 8, 0.28);
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.chatbot-toggle[aria-expanded="true"] {
+  background: #8b6b4a;
+  box-shadow: 0 10px 26px rgba(139, 107, 74, 0.32);
+}
+@keyframes chatbot-enter {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@media (max-width: 480px) {
+  .chatbot {
+    right: 0.85rem;
+    bottom: 0.85rem;
+  }
+  .chatbot-panel {
+    width: calc(100vw - 1.7rem);
+    max-height: calc(100vh - 6.25rem);
+  }
+  .chatbot-toggle {
+    width: 3.35rem;
+    height: 3.35rem;
+  }
+  .whatsapp-float {
+    width: 3.1rem;
+    height: 3.1rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chatbot-panel {
+    animation: none;
+  }
+  .chatbot-icon-btn,
+  .whatsapp-float,
+  .chatbot-toggle,
+  .chatbot-form button,
+  .chatbot-quick button {
+    transition: none;
+  }
+}
