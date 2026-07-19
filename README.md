@@ -42,23 +42,6 @@ Marketing site and content backend for vbird, structured as two independent proj
 - The Studio connects to the hosted Sanity content platform for content storage.
 - **Not yet integrated** with the static site — the marketing pages don't currently pull content from Sanity.
 
-## Development
-
-Static site:
-```bash
-npm install
-npm run watch:css   # watch and rebuild Tailwind CSS during development
-npm run build        # production build (minified CSS)
-```
-
-Sanity Studio:
-```bash
-cd vibird
-npm install
-npm run dev           # local Studio at http://localhost:3333
-npm run deploy         # deploy the Studio
-```
-
 ## Deployment
 
-The static site deploys to Vercel using the build command and settings in `vercel.json`.
+The static site deploys to Vercel using the build command and settings in `vercel.json`, hosted at [vibirdskinscience.com](https://vibirdskinscience.com).
