@@ -1,10 +1,3 @@
-// ── Trigger hero entrance stagger as soon as possible ──
-(function () {
-  function go() { document.body.classList.add('loaded'); }
-  if (document.body) go();
-  else document.addEventListener('DOMContentLoaded', go);
-})();
-
 // ── Product data ──
 const PRODUCTS = {
   cleanser: {

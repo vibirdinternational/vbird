@@ -242,20 +242,25 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   .hero-bg { background-image: url('/src/Images/Background/desktop.webp'); }
 }
 
-/* ── Hero entrance stagger (plays once on load) ── */
-.hero-item {
-  opacity: 0;
-  transform: translateY(16px);
+/* ── Hero entrance stagger (plays once on load) ──
+   Mobile: content renders instantly (no JS-gated fade-in) to keep the
+   hero — which fills the whole viewport on phones — visually complete
+   as early as possible. The staggered rise is desktop/tablet-only. */
+@media (min-width: 768px) {
+  .hero-item {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  body.loaded .hero-item {
+    animation: hero-rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  body.loaded .hero-stagger .hero-item:nth-child(1) { animation-delay: 0.05s; }
+  body.loaded .hero-stagger .hero-item:nth-child(2) { animation-delay: 0.12s; }
+  body.loaded .hero-stagger .hero-item:nth-child(3) { animation-delay: 0.19s; }
+  body.loaded .hero-stagger .hero-item:nth-child(4) { animation-delay: 0.26s; }
+  /* the feature-icons row sits after the stagger block */
+  body.loaded .hero-stagger ~ .hero-item { animation-delay: 0.33s; }
 }
-body.loaded .hero-item {
-  animation: hero-rise 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-body.loaded .hero-stagger .hero-item:nth-child(1) { animation-delay: 0.05s; }
-body.loaded .hero-stagger .hero-item:nth-child(2) { animation-delay: 0.12s; }
-body.loaded .hero-stagger .hero-item:nth-child(3) { animation-delay: 0.19s; }
-body.loaded .hero-stagger .hero-item:nth-child(4) { animation-delay: 0.26s; }
-/* the feature-icons row sits after the stagger block */
-body.loaded .hero-stagger ~ .hero-item { animation-delay: 0.33s; }
 @keyframes hero-rise {
   to { opacity: 1; transform: translateY(0); }
 }
