@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Open Graph / Social Sharing -->
+<meta property="og:title" content="VIBIRD SKIN SCIENCE™ — Performance Skincare for Hot & Humid Lifestyles" />
+<meta property="og:description" content="Climate-inspired skincare engineered for tropical climates. Lightweight, breathable, fast-absorbing." />
+<meta property="og:image" content="https://vibird.vercel.app/src/Images/Background/desktop.webp"/>
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://vibird.vercel.app/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Vibird Skin Science" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="VIBIRD SKIN SCIENCE™" />
+<meta name="twitter:description" content="Performance skincare engineered for hot & humid lifestyles." />
+<meta name="twitter:image" content="https://vibird.vercel.app/src/Images/other/logo.avif" />
+  <title>VIBIRD SKIN SCIENCE™ — Performance Skincare Engineered for Hot &amp; Humid Lifestyles</title>
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+  <link rel="icon" href="/src/Images/other/logo.avif" />
+  <!-- Preload hero background (LCP) + self-hosted fonts so they fetch immediately -->
+  <!-- Preload the hero background matching the current screen orientation -->
+  <link rel="preload" as="image" href="/src/Images/Background/mobile.webp" media="(max-width: 767px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="/src/Images/Background/tablet.webp" media="(min-width: 768px) and (max-width: 1023px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="/src/Images/Background/desktop.webp" media="(min-width: 1024px)" fetchpriority="high" />
+  <link rel="preload" as="font" type="font/woff2" href="/src/fonts/playfair.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="/src/fonts/inter.woff2" crossorigin />
+  <!-- Compiled CSS (render-critical, includes @font-face) -->
+  <link rel="stylesheet" href="/src/css/tailwind.css" />
+  <style>
+    /* Footer contact details: mobile only (matches Tailwind sm breakpoint) */
+    @media (min-width: 640px) { .mobile-only-contact { display: none; } }
+    @media (min-width: 768px) {
+      .hero-feature-icons {
+        display: flex;
+        transition: transform 0.6s cubic-bezier(.22,1,.36,1), opacity 0.45s ease;
+      }
+      .hero-feature {
+        transform: translateY(0);
+        transition: transform 0.6s cubic-bezier(.22,1,.36,1), opacity 0.45s ease;
+        will-change: transform, opacity;
+      }
+    }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .hero-feature-icons {
+        position: absolute;
+        right: 1.5rem;
+        bottom: 4rem;
+        padding-top: 0;
+        gap: 1.5rem;
+        animation: hero-icons-tablet-shift 0.65s cubic-bezier(.22,1,.36,1) both;
+      }
+      .hero-feature {
+        animation: hero-feature-tablet-settle 0.65s cubic-bezier(.22,1,.36,1) both;
+      }
+      .hero-feature:nth-child(2) {
+        animation-delay: 0.06s;
+      }
+      .hero-feature:nth-child(3) {
+        animation-delay: 0.12s;
+      }
+    }
+    @keyframes hero-icons-tablet-shift {
+      from {
+        opacity: 0;
+        transform: translateX(-3rem) translateY(1rem);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    @keyframes hero-feature-tablet-settle {
+      from {
+        opacity: 0;
+        transform: translateY(1.25rem);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-feature-icons,
+      .hero-feature {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+  <script defer src="/src/js/speed-insights.js"></script>
+  <script defer src="/src/js/main.js"></script>
+  <!-- Vercel Web Analytics -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</head>
+
+<body class="bg-vb-warm text-vb-dark">
+
+  <!-- ════════════════════════════════════════
+       NAVIGATION
+  ════════════════════════════════════════ -->
+  <header id="site-header" class="hero-nav fixed top-0 inset-x-0 z-50 px-4 sm:px-6 pt-4">
+    <div class="nav-pill max-w-[1440px] mx-auto rounded-[2rem]">
+      <div class="flex items-center justify-between gap-4 pl-3 pr-3 sm:pl-4 py-2.5">
+
+        <!-- Logo + Left Nav -->
+        <div class="flex items-center gap-5 lg:gap-8">
+          <a href="#" class="flex items-center gap-2 shrink-0">
+            <img src="/src/Images/other/logo.avif" alt="Vibird Skin Science" width="38" height="38"
+                 class="nav-logo w-[38px] h-[38px] object-contain mix-blend-multiply" />
+            <span class="font-serif text-[16px] font-semibold tracking-[0.1em] text-vb-dark">VIBIRD</span>
+          </a>
+          <nav class="hidden md:flex items-center gap-6 lg:gap-8">
+            <a href="/about" class="nav-link text-[13px] font-medium text-vb-dark hover:text-vb-tan transition-colors">About</a>
+            <a href="#products" class="nav-link text-[13px] font-medium text-vb-dark hover:text-vb-tan transition-colors">Products</a>
+            <a href="/learn" class="nav-link text-[13px] font-medium text-vb-dark hover:text-vb-tan transition-colors">Learn</a>
+          </nav>
+        </div>
+
+        <!-- Right: CTA (desktop) + hamburger (mobile) -->
+        <div class="flex items-center gap-3 sm:gap-5">
+          <!-- CTA pill -->
+          <a href="#contact" class="group hidden md:flex items-center rounded-full px-6 py-2 bg-vb-dark text-white hover:bg-vb-brown transition-colors">
+            <span class="text-[13px] font-medium whitespace-nowrap">Connect</span>
+          </a>
+          <button id="hamburger" class="md:hidden text-vb-dark" aria-label="Menu" onclick="document.getElementById('mobile-menu').classList.toggle('open')">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden border-t border-vb-beige px-6 pt-4 pb-5 space-y-3">
+        <a href="/about" class="block text-[13px] font-medium text-vb-dark py-1">About</a>
+        <a href="#products"        class="block text-[13px] font-medium text-vb-dark py-1">Products</a>
+        <a href="/learn" class="block text-[13px] font-medium text-vb-dark py-1">Learn</a>
+        <a href="#contact"         class="block text-[13px] font-medium text-vb-dark py-1">Connect</a>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ════════════════════════════════════════
+       HERO SECTION
+  ════════════════════════════════════════ -->
+  <section class="hero-bg relative h-screen bg-vb-cream overflow-hidden bg-cover bg-center bg-no-repeat">
+    <!-- Balancing gradient: soft cream wash at top (behind navbar) and a faint base, image stays visible in the middle -->
+    <div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-vb-cream/80 via-transparent to-vb-cream/30"></div>
+
+    <div class="relative h-full max-w-[1440px] mx-auto px-6 pt-28 pb-12 md:pt-32 md:pb-16 flex flex-col md:flex-row items-center">
+
+      <!-- Left: Text (pushed to bottom) -->
+      <div class="flex-1 md:pr-10 z-10 self-stretch flex flex-col">
+        <p class="md:hidden text-[10px] font-semibold tracking-[0.4em] uppercase text-vb-tan mt-4 text-center">Climate-Inspired Skin Science</p>
+        <div class="mt-auto hero-stagger">
+          <p class="hero-item hidden md:block text-[10px] font-semibold tracking-[0.4em] uppercase text-vb-tan mb-5">Climate-Inspired Skin Science</p>
+          <h1 class="hero-item font-serif text-[52px] md:text-[62px] font-semibold leading-[1.08] text-vb-dark mb-6">
+            VIBIRD
+          </h1>
+          <p class="hero-item hidden md:block text-[15px] text-stone-600 leading-relaxed mb-10 max-w-sm">
+            Performance Skincare for Hot &amp; Humid Lifestyles
+          </p>
+          <div class="hero-item flex flex-wrap items-center gap-3">
+            <a href="#products" class="group inline-flex items-center gap-3 bg-vb-dark text-white text-[11px] font-semibold tracking-[0.28em] uppercase pl-10 pr-2 py-2 rounded-full hover:bg-vb-brown transition-colors">
+              <span>Explore</span>
+              <span class="btn-arrow w-9 h-9 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Feature Icons (just below the text) -->
+        <div class="hero-item hero-feature-icons hidden md:flex gap-8 pt-10 min-[1445px]:mb-24">
+          <!-- Natural Ingredients -->
+          <div class="hero-feature flex flex-col items-center gap-2.5 text-center">
+            <div class="w-11 h-11 rounded-full border border-vb-tan/60 flex items-center justify-center">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B6B4A" stroke-width="1.5" stroke-linecap="round">
+                <path d="M12 22C6.5 16 6.5 8 12 2"/><path d="M12 22C17.5 16 17.5 8 12 2"/><path d="M2 12h20"/>
+              </svg>
+            </div>
+            <p class="text-[10px] font-medium uppercase tracking-[0.12em] text-vb-dark leading-snug">Light<br>weight</p>
+          </div>
+          <!-- Science Backed -->
+          <div class="hero-feature flex flex-col items-center gap-2.5 text-center">
+            <div class="w-11 h-11 rounded-full border border-vb-tan/60 flex items-center justify-center">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B6B4A" stroke-width="1.5" stroke-linecap="round">
+                <path d="M10 2v7.31"/><path d="M14 9.3V1.99"/><path d="M8.5 2h7"/>
+                <path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.58 16.5h12.85"/>
+              </svg>
+            </div>
+            <p class="text-[10px] font-medium uppercase tracking-[0.12em] text-vb-dark leading-snug">Breath<br>able</p>
+          </div>
+          <!-- Fast Absorbing -->
+          <div class="hero-feature flex flex-col items-center gap-2.5 text-center">
+            <div class="w-11 h-11 rounded-full border border-vb-tan/60 flex items-center justify-center">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B6B4A" stroke-width="1.5" stroke-linecap="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </div>
+            <p class="text-[10px] font-medium uppercase tracking-[0.12em] text-vb-dark leading-snug">Fast<br>Absorbing</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: spacer so the photo's products stay visible on desktop -->
+      <div class="hidden md:block flex-1"></div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       PRODUCT CATEGORY GRID
+  ════════════════════════════════════════ -->
+  <section id="products" class="reveal">
+    <div class="max-w-[1440px] mx-auto text-center px-6 pt-20 pb-12">
+      <p class="text-[10px] font-semibold tracking-[0.4em] uppercase text-vb-tan mb-4">Products · Coming Soon</p>
+      <h2 class="font-serif text-[42px] font-semibold text-vb-dark mb-4">Engineered for Comfort</h2>
+      <p class="text-[14px] text-stone-500 max-w-[520px] mx-auto leading-relaxed">
+        Our first formulations are in development — performance skincare that works hard while feeling effortless.
+      </p>
+    </div>
+    <div class="relative max-w-[1480px] mx-auto px-6 pb-8">
+
+      <!-- Scrolling track -->
+      <div id="product-track" class="flex gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 no-scrollbar">
+
+      <!-- 1 · Gel Cleanser -->
+      <div class="product-card group relative snap-start shrink-0 w-[82%] sm:w-[46%] lg:w-[31.5%] xl:w-[24%] h-[460px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow cursor-pointer" tabindex="0">
+        <!-- Product image (fills the card) -->
+        <img src="/src/Images/Products/SWEAT&OIL_RESET_GEL_CLEANSER.webp" alt="Sweat & Oil Reset Gel Cleanser" loading="lazy" decoding="async" class="product-shape absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <!-- Darkening overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent"></div>
+        <!-- Overlaid content -->
+        <div class="absolute bottom-0 left-0 right-0 p-6">
+          <h3 class="font-serif text-[22px] font-semibold text-white leading-tight flex items-end justify-between gap-3">
+            <span>Sweat &amp; Oil Reset<br><span class="text-[14px] font-normal text-white/80">Gel Cleanser</span></span>
+            <svg class="pcard-chevron shrink-0 mb-1 transition-transform duration-300" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </h3>
+          <div class="pc-reveal">
+            <p class="text-[9px] font-semibold tracking-[0.3em] uppercase text-white/70 mt-3 mb-2">Coming Soon</p>
+            <p class="text-[13px] text-white/85 leading-relaxed mb-5">Lightweight cleansing that removes oil, sweat &amp; impurities without stripping comfort.</p>
+            <button type="button" onclick="openProduct('cleanser')" class="block w-full text-center text-white text-[11px] font-semibold tracking-[0.2em] uppercase py-3 rounded-full border border-white/40 bg-white/20 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.5),0_4px_14px_rgba(0,0,0,0.18)] hover:bg-white/35 transition-colors">Know More</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 · Gel Moisturizer -->
+      <div class="product-card group relative snap-start shrink-0 w-[82%] sm:w-[46%] lg:w-[31.5%] xl:w-[24%] h-[460px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow cursor-pointer" tabindex="0">
+        <img src="/src/Images/Products/WEIGHTLESS_HUMIDITY_GEL_MOISTURIZER.webp" alt="Weightless Humidity Gel Moisturizer" loading="lazy" decoding="async" class="product-shape absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-6">
+          <h3 class="font-serif text-[22px] font-semibold text-white leading-tight flex items-end justify-between gap-3">
+            <span>Weightless Humidity<br><span class="text-[14px] font-normal text-white/80">Gel Moisturizer</span></span>
+            <svg class="pcard-chevron shrink-0 mb-1 transition-transform duration-300" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </h3>
+          <div class="pc-reveal">
+            <p class="text-[9px] font-semibold tracking-[0.3em] uppercase text-white/70 mt-3 mb-2">Coming Soon</p>
+            <p class="text-[13px] text-white/85 leading-relaxed mb-5">Breathable, fast-absorbing hydration with no heaviness, greasiness, or stickiness.</p>
+            <button type="button" onclick="openProduct('moisturizer')" class="block w-full text-center text-white text-[11px] font-semibold tracking-[0.2em] uppercase py-3 rounded-full border border-white/40 bg-white/20 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.5),0_4px_14px_rgba(0,0,0,0.18)] hover:bg-white/35 transition-colors">Know More</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 · Serum -->
+      <div class="product-card group relative snap-start shrink-0 w-[82%] sm:w-[46%] lg:w-[31.5%] xl:w-[24%] h-[460px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow cursor-pointer" tabindex="0">
+        <img src="/src/Images/Products/CLIMATE_PERFORMANCE_SERUM.webp" alt="Climate Performance Serum" loading="lazy" decoding="async" class="product-shape absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-6">
+          <h3 class="font-serif text-[22px] font-semibold text-white leading-tight flex items-end justify-between gap-3">
+            <span>Climate Performance<br><span class="text-[14px] font-normal text-white/80">Serum</span></span>
+            <svg class="pcard-chevron shrink-0 mb-1 transition-transform duration-300" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </h3>
+          <div class="pc-reveal">
+            <p class="text-[9px] font-semibold tracking-[0.3em] uppercase text-white/70 mt-3 mb-2">In Pipeline</p>
+            <p class="text-[13px] text-white/85 leading-relaxed mb-5">Lightweight layering serum supporting hydration, balance &amp; comfort in tough climates.</p>
+            <button type="button" onclick="openProduct('serum')" class="block w-full text-center text-white text-[11px] font-semibold tracking-[0.2em] uppercase py-3 rounded-full border border-white/40 bg-white/20 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.5),0_4px_14px_rgba(0,0,0,0.18)] hover:bg-white/35 transition-colors">Know More</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 · Sunscreen -->
+      <div class="product-card group relative snap-start shrink-0 w-[82%] sm:w-[46%] lg:w-[31.5%] xl:w-[24%] h-[460px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow cursor-pointer" tabindex="0">
+        <img src="/src/Images/Products/LIGHTWEIGHT_SUNSCREEN.webp" alt="Lightweight Sunscreen" loading="lazy" decoding="async" class="product-shape absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-6">
+          <h3 class="font-serif text-[22px] font-semibold text-white leading-tight flex items-end justify-between gap-3">
+            <span>Lightweight<br><span class="text-[14px] font-normal text-white/80">Sunscreen</span></span>
+            <svg class="pcard-chevron shrink-0 mb-1 transition-transform duration-300" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </h3>
+          <div class="pc-reveal">
+            <p class="text-[9px] font-semibold tracking-[0.3em] uppercase text-white/70 mt-3 mb-2">In Pipeline</p>
+            <p class="text-[13px] text-white/85 leading-relaxed mb-5">Everyday UV protection with a comfortable, breathable, non-greasy finish.</p>
+            <button type="button" onclick="openProduct('sunscreen')" class="block w-full text-center text-white text-[11px] font-semibold tracking-[0.2em] uppercase py-3 rounded-full border border-white/40 bg-white/20 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.5),0_4px_14px_rgba(0,0,0,0.18)] hover:bg-white/35 transition-colors">Know More</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 · Scalp & Hair Care -->
+      <div class="product-card group relative snap-start shrink-0 w-[82%] sm:w-[46%] lg:w-[31.5%] xl:w-[24%] h-[460px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow cursor-pointer" tabindex="0">
+        <img src="/src/Images/Products/SCALP&HAIR_CARE_SOLUTION.webp" alt="Scalp & Hair Care Solution" loading="lazy" decoding="async" class="product-shape absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-6">
+          <h3 class="font-serif text-[22px] font-semibold text-white leading-tight flex items-end justify-between gap-3">
+            <span>Scalp &amp; Hair Care<br><span class="text-[14px] font-normal text-white/80">Solution</span></span>
+            <svg class="pcard-chevron shrink-0 mb-1 transition-transform duration-300" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </h3>
+          <div class="pc-reveal">
+            <p class="text-[9px] font-semibold tracking-[0.3em] uppercase text-white/70 mt-3 mb-2">In Pipeline</p>
+            <p class="text-[13px] text-white/85 leading-relaxed mb-5">Climate-inspired scalp care for freshness &amp; comfort in hot, humid environments.</p>
+            <button type="button" onclick="openProduct('scalp')" class="block w-full text-center text-white text-[11px] font-semibold tracking-[0.2em] uppercase py-3 rounded-full border border-white/40 bg-white/20 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.5),0_4px_14px_rgba(0,0,0,0.18)] hover:bg-white/35 transition-colors">Know More</button>
+          </div>
+        </div>
+      </div>
+
+      </div><!-- /track -->
+
+      <!-- Carousel dots -->
+      <div id="product-dots" class="flex justify-center items-center gap-2.5 mt-6">
+        <button type="button" data-dot="0" aria-label="Go to product 1" class="product-dot w-2.5 h-2.5 rounded-full bg-vb-dark transition-all duration-300"></button>
+        <button type="button" data-dot="1" aria-label="Go to product 2" class="product-dot w-2.5 h-2.5 rounded-full bg-vb-beige transition-all duration-300"></button>
+        <button type="button" data-dot="2" aria-label="Go to product 3" class="product-dot w-2.5 h-2.5 rounded-full bg-vb-beige transition-all duration-300"></button>
+        <button type="button" data-dot="3" aria-label="Go to product 4" class="product-dot w-2.5 h-2.5 rounded-full bg-vb-beige transition-all duration-300"></button>
+        <button type="button" data-dot="4" aria-label="Go to product 5" class="product-dot w-2.5 h-2.5 rounded-full bg-vb-beige transition-all duration-300"></button>
+      </div>
+    </div><!-- /carousel wrapper -->
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       OUR FOCUS
+  ════════════════════════════════════════ -->
+  <section class="reveal bg-vb-warm pt-10 pb-24 px-6">
+    <div class="max-w-[1440px] mx-auto text-center">
+      <p class="text-[10px] font-semibold tracking-[0.4em] uppercase text-vb-tan mb-4">Our Focus</p>
+      <h2 class="font-serif text-[42px] font-semibold text-vb-dark mb-4">Climate-Inspired Skin Science</h2>
+      <p class="text-[14px] text-stone-500 max-w-[560px] mx-auto mb-16 leading-relaxed">
+        We study how climate, humidity, oil balance, hydration, and texture shape the daily skincare experience — developing solutions that stay comfortable, effective, and practical in hot, humid, and high-perspiration environments.
+      </p>
+
+      <div class="reveal-stagger grid grid-cols-2 lg:grid-cols-4 gap-5">
+
+        <!-- Lightweight -->
+        <div class="bg-vb-card rounded-2xl p-8 flex flex-col items-center gap-4 hover:shadow-md transition-shadow">
+          <div class="w-14 h-14 rounded-full bg-vb-warm shadow-sm flex items-center justify-center">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A2C18" stroke-width="1.5" stroke-linecap="round">
+              <path d="M12 22C6.5 16 6.5 8 12 2"/><path d="M12 22C17.5 16 17.5 8 12 2"/><path d="M2 12h10"/>
+            </svg>
+          </div>
+          <h3 class="font-serif text-[19px] font-semibold text-vb-dark">Lightweight</h3>
+          <p class="hidden lg:block text-[13px] text-stone-500 text-center leading-relaxed">Formulated to feel weightless — never heavy, greasy, or occlusive.</p>
+        </div>
+
+        <!-- Breathable -->
+        <div class="bg-vb-card rounded-2xl p-8 flex flex-col items-center gap-4 hover:shadow-md transition-shadow">
+          <div class="w-14 h-14 rounded-full bg-vb-warm shadow-sm flex items-center justify-center">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A2C18" stroke-width="1.5" stroke-linecap="round">
+              <path d="M10 2v7.31"/><path d="M14 9.3V1.99"/><path d="M8.5 2h7"/>
+              <path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.58 16.5h12.85"/>
+            </svg>
+          </div>
+          <h3 class="font-serif text-[19px] font-semibold text-vb-dark">Breathable</h3>
+          <p class="hidden lg:block text-[13px] text-stone-500 text-center leading-relaxed">Designed to let skin breathe through heat, humidity, and sweat.</p>
+        </div>
+
+        <!-- Fast Absorbing -->
+        <div class="bg-vb-card rounded-2xl p-8 flex flex-col items-center gap-4 hover:shadow-md transition-shadow">
+          <div class="w-14 h-14 rounded-full bg-vb-warm shadow-sm flex items-center justify-center">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A2C18" stroke-width="1.5" stroke-linecap="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <h3 class="font-serif text-[19px] font-semibold text-vb-dark">Fast Absorbing</h3>
+          <p class="hidden lg:block text-[13px] text-stone-500 text-center leading-relaxed">Sinks in quickly with no sticky residue or lingering film.</p>
+        </div>
+
+        <!-- Everyday Comfort -->
+        <div class="bg-vb-card rounded-2xl p-8 flex flex-col items-center gap-4 hover:shadow-md transition-shadow">
+          <div class="w-14 h-14 rounded-full bg-vb-warm shadow-sm flex items-center justify-center">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4A2C18" stroke-width="1.5" stroke-linecap="round">
+              <!-- Rabbit -->
+              <ellipse cx="12" cy="15.5" rx="5" ry="5.5"/>
+              <path d="M9.5 10 Q8.5 5 10 3.5 Q11 7 9.5 10"/>
+              <path d="M14.5 10 Q15.5 5 14 3.5 Q13 7 14.5 10"/>
+              <circle cx="10.5" cy="15" r="0.75" fill="#4A2C18"/>
+              <circle cx="13.5" cy="15" r="0.75" fill="#4A2C18"/>
+              <path d="M11 17 Q12 17.8 13 17" stroke-width="1" fill="none"/>
+            </svg>
+          </div>
+          <h3 class="font-serif text-[19px] font-semibold text-vb-dark">Everyday Comfort</h3>
+          <p class="hidden lg:block text-[13px] text-stone-500 text-center leading-relaxed">Comfortable all day — built for real life in tropical climates.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       OUR PHILOSOPHY
+  ════════════════════════════════════════ -->
+  <section class="reveal bg-vb-cream py-24 px-6">
+    <div class="max-w-[820px] mx-auto">
+      <div class="text-center mb-12">
+        <p class="text-[10px] font-semibold tracking-[0.4em] uppercase text-vb-tan mb-4">Our Philosophy</p>
+        <h2 class="font-serif text-[36px] md:text-[44px] font-semibold text-vb-dark leading-tight">Skincare Should Feel Comfortable</h2>
+      </div>
+
+      <div class="space-y-10">
+        <div>
+          <h3 class="font-serif text-[22px] font-semibold text-vb-dark mb-3">The Requirement for Tactile Comfort in Skincare</h3>
+          <p class="text-[15px] text-stone-500 leading-relaxed">
+            A significant demographic residing in tropical and high-humidity regions faces dermatological challenges that conventional global skincare formulations often fail to address. The prevalence of excess sebum, cutaneous stickiness, and the heavy residue associated with standard moisturizers and sunscreens are more than mere aesthetic concerns; they represent primary barriers to consistent routine adherence.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-serif text-[22px] font-semibold text-vb-dark mb-3">Our Commitment to Climate-Adaptive Performance</h3>
+          <p class="text-[15px] text-stone-500 leading-relaxed">
+            Vibird focuses on engineering solutions that prioritize sensory comfort, efficacy, and practical daily application. We believe that high-performance skincare must transcend clinical results; it must provide a seamless, breathable experience that complements the specific environmental conditions of the user's climate.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- What We Solve -->
+    <div id="solve" class="max-w-[1100px] mx-auto mt-20 bg-vb-card/60 rounded-2xl overflow-hidden border border-vb-beige">
+      <div class="flex items-center gap-4 px-6 py-5 border-b border-vb-beige">
+        <span class="w-8 h-px bg-vb-tan"></span>
+        <h3 class="text-[10px] font-semibold tracking-[0.4em] uppercase text-vb-tan">What We Solve</h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2">
+        <!-- Left: list (accordion on mobile) -->
+        <div class="border-b md:border-b-0 md:border-r border-vb-beige">
+          <div class="solve-item is-active border-b border-vb-beige" data-solve="0">
+            <button type="button" class="solve-tab w-full text-left flex items-center gap-5 px-6 py-7 transition-colors">
+              <span class="solve-label font-serif text-[20px] flex-1">Excess Oil</span>
+              <span class="solve-dot hidden md:block w-1.5 h-1.5 rounded-full bg-vb-tan opacity-0"></span>
+              <svg class="solve-chevron md:hidden shrink-0 transition-transform duration-300" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <p class="solve-mobile-desc md:hidden text-[14px] text-stone-500 leading-relaxed px-6">Heat triggers overproduction of sebum. We formulate to balance — not strip — your skin's natural oil levels throughout the day.</p>
+          </div>
+          <div class="solve-item border-b border-vb-beige" data-solve="1">
+            <button type="button" class="solve-tab w-full text-left flex items-center gap-5 px-6 py-7 transition-colors">
+              <span class="solve-label font-serif text-[20px] flex-1 text-vb-dark">Sticky Skin Feel</span>
+              <span class="solve-dot hidden md:block w-1.5 h-1.5 rounded-full bg-vb-tan opacity-0"></span>
+              <svg class="solve-chevron md:hidden shrink-0 transition-transform duration-300" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <p class="solve-mobile-desc md:hidden text-[14px] text-stone-500 leading-relaxed px-6">Thick textures and occlusive ingredients cling in humidity. Our products use lightweight actives that absorb cleanly, no residue.</p>
+          </div>
+          <div class="solve-item border-b border-vb-beige" data-solve="2">
+            <button type="button" class="solve-tab w-full text-left flex items-center gap-5 px-6 py-7 transition-colors">
+              <span class="solve-label font-serif text-[20px] flex-1 text-vb-dark">Heavy Moisturisers</span>
+              <span class="solve-dot hidden md:block w-1.5 h-1.5 rounded-full bg-vb-tan opacity-0"></span>
+              <svg class="solve-chevron md:hidden shrink-0 transition-transform duration-300" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <p class="solve-mobile-desc md:hidden text-[14px] text-stone-500 leading-relaxed px-6">Rich creams feel suffocating in the heat. We build breathable, gel-based hydration that comforts without weighing skin down.</p>
+          </div>
+          <div class="solve-item border-b border-vb-beige" data-solve="3">
+            <button type="button" class="solve-tab w-full text-left flex items-center gap-5 px-6 py-7 transition-colors">
+              <span class="solve-label font-serif text-[20px] flex-1 text-vb-dark">Uncomfortable Sunscreens</span>
+              <span class="solve-dot hidden md:block w-1.5 h-1.5 rounded-full bg-vb-tan opacity-0"></span>
+              <svg class="solve-chevron md:hidden shrink-0 transition-transform duration-300" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <p class="solve-mobile-desc md:hidden text-[14px] text-stone-500 leading-relaxed px-6">White cast, grease, and pill-up make daily SPF a chore. We design protection that wears light and layers effortlessly.</p>
+          </div>
+          <div class="solve-item" data-solve="4">
+            <button type="button" class="solve-tab w-full text-left flex items-center gap-5 px-6 py-7 transition-colors">
+              <span class="solve-label font-serif text-[20px] flex-1 text-vb-dark">Climate-Related Discomfort</span>
+              <span class="solve-dot hidden md:block w-1.5 h-1.5 rounded-full bg-vb-tan opacity-0"></span>
+              <svg class="solve-chevron md:hidden shrink-0 transition-transform duration-300" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <p class="solve-mobile-desc md:hidden text-[14px] text-stone-500 leading-relaxed px-6">UV, humidity, and heat interact in ways most global brands ignore. We design for the conditions you actually live in.</p>
+          </div>
+        </div>
+
+        <!-- Right: detail panel (desktop only) -->
+        <div class="relative hidden md:flex p-8 md:p-12 flex-col justify-center min-h-[340px] overflow-hidden">
+          <!-- Background image -->
+          <img id="solve-bg" src="/src/Images/learn/Understanding Your Skin Type.webp" alt="" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-500" />
+          <!-- Cream overlay so text stays readable -->
+          <div class="absolute inset-0 bg-vb-cream/85"></div>
+          <!-- Content -->
+          <div class="relative z-10">
+            <h4 id="solve-title" class="font-serif text-[30px] font-semibold text-vb-dark mb-4">Excess Oil</h4>
+            <p id="solve-desc" class="text-[15px] text-stone-600 leading-relaxed max-w-md">Heat triggers overproduction of sebum. We formulate to balance — not strip — your skin's natural oil levels throughout the day.</p>
+            <!-- progress segments -->
+            <div class="flex items-center gap-2 mt-10">
+              <span class="solve-seg h-[3px] w-10 rounded-full bg-vb-tan"></span>
+              <span class="solve-seg h-[3px] w-10 rounded-full bg-vb-beige"></span>
+              <span class="solve-seg h-[3px] w-10 rounded-full bg-vb-beige"></span>
+              <span class="solve-seg h-[3px] w-10 rounded-full bg-vb-beige"></span>
+              <span class="solve-seg h-[3px] w-10 rounded-full bg-vb-beige"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       WHAT MAKES VIBIRD DIFFERENT
+  ════════════════════════════════════════ -->
+  <section class="reveal bg-vb-warm py-24 px-6">
+    <div class="max-w-[1440px] mx-auto text-center">
+      <p class="text-[10px] font-semibold tracking-[0.4em] uppercase text-vb-tan mb-4">What Makes Vibird Different</p>
+      <h2 class="font-serif text-[40px] font-semibold text-vb-dark mb-4">Beyond Ingredients</h2>
+      <p class="text-[14px] text-stone-500 max-w-[560px] mx-auto mb-14 leading-relaxed">
+        Many brands focus only on what's inside the bottle. We focus on the complete experience:
+        <span class="block mt-3 font-serif text-[18px] text-vb-dark">Ingredient + Texture + Climate + User Experience</span>
+      </p>
+      <div class="marquee">
+        <div class="marquee-track">
+          <div class="marquee-card bg-vb-card rounded-2xl p-8"><h3 class="font-serif text-[18px] font-semibold text-vb-dark mb-2">How It Feels</h3><p class="text-[13px] text-stone-500 leading-relaxed">Texture and finish judged by real-world comfort.</p></div>
+          <div class="marquee-card bg-vb-card rounded-2xl p-8"><h3 class="font-serif text-[18px] font-semibold text-vb-dark mb-2">How It Absorbs</h3><p class="text-[13px] text-stone-500 leading-relaxed">Fast, clean absorption with no greasy residue.</p></div>
+          <div class="marquee-card bg-vb-card rounded-2xl p-8"><h3 class="font-serif text-[18px] font-semibold text-vb-dark mb-2">How It Performs</h3><p class="text-[13px] text-stone-500 leading-relaxed">Tested for the demands of daily tropical life.</p></div>
+          <div class="marquee-card bg-vb-card rounded-2xl p-8"><h3 class="font-serif text-[18px] font-semibold text-vb-dark mb-2">All-Day Comfort</h3><p class="text-[13px] text-stone-500 leading-relaxed">Stays comfortable from morning through humidity.</p></div>
+          <!-- duplicate set for seamless loop -->
+          <div class="marquee-card bg-vb-card rounded-2xl p-8" aria-hidden="true"><h3 class="font-serif text-[18px] font-semibold text-vb-dark mb-2">How It Feels</h3><p class="text-[13px] text-stone-500 leading-relaxed">Texture and finish judged by real-world comfort.</p></div>
+          <div class="marquee-card bg-vb-card rounded-2xl p-8" aria-hidden="true"><h3 class="font-serif text-[18px] font-semibold text-vb-dark mb-2">How It Absorbs</h3><p class="text-[13px] text-stone-500 leading-relaxed">Fast, clean absorption with no greasy residue.</p></div>
+          <div class="marquee-card bg-vb-card rounded-2xl p-8" aria-hidden="true"><h3 class="font-serif text-[18px] font-semibold text-vb-dark mb-2">How It Performs</h3><p class="text-[13px] text-stone-500 leading-relaxed">Tested for the demands of daily tropical life.</p></div>
+          <div class="marquee-card bg-vb-card rounded-2xl p-8" aria-hidden="true"><h3 class="font-serif text-[18px] font-semibold text-vb-dark mb-2">All-Day Comfort</h3><p class="text-[13px] text-stone-500 leading-relaxed">Stays comfortable from morning through humidity.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       EXPERIENCE STUDIO
+  ════════════════════════════════════════ -->
+  <section class="reveal bg-vb-dark text-white py-24 px-6">
+    <div class="max-w-[900px] mx-auto text-center">
+      <p class="text-[10px] font-semibold tracking-[0.4em] uppercase text-vb-tan mb-4">Vibird Skin Experience Studio™</p>
+      <h2 class="font-serif text-[40px] font-semibold mb-5">Experience Skincare Beyond Products</h2>
+      <p class="text-[14px] text-white/70 max-w-[560px] mx-auto mb-12 leading-relaxed">
+        A place where skincare becomes education, consultation, experience, and continuous improvement.
+      </p>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-[640px] mx-auto mb-10 text-[12px] tracking-[0.05em]">
+        <span class="border border-white/25 rounded-lg py-3">Skin Consultation</span>
+        <span class="border border-white/25 rounded-lg py-3">Product Experience</span>
+        <span class="border border-white/25 rounded-lg py-3">Skin Education</span>
+        <span class="border border-white/25 rounded-lg py-3">AI Skin Analysis</span>
+        <span class="border border-white/25 rounded-lg py-3">Product Trials</span>
+        <span class="border border-white/25 rounded-lg py-3">Feedback Programs</span>
+      </div>
+      <p class="text-[11px] font-semibold tracking-[0.3em] uppercase text-vb-tan">Opening Soon</p>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+  <footer id="contact" class="bg-vb-warm border-t border-vb-beige py-16 px-6">
+    <div class="max-w-[1440px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+
+      <!-- About -->
+      <div>
+        <h4 class="text-[11px] font-semibold uppercase tracking-[0.22em] text-vb-dark mb-5">About Vibird</h4>
+        <p class="text-[13px] text-stone-500 leading-relaxed mb-5">
+          Performance skincare engineered for hot &amp; humid lifestyles — lightweight
+        </p>
+        <!-- Contact details (mobile only) -->
+        <div class="mobile-only-contact">
+          <p class="text-[12px] text-stone-500 leading-relaxed mb-1"><span class="text-vb-dark font-medium">Location:</span> <a href="https://maps.app.goo.gl/xHgnYurcNnmgHbyg7" target="_blank" rel="noopener" class="hover:text-vb-dark transition-colors">calicut, Kerala, India</a></p>
+          <p class="text-[12px] text-stone-500 leading-relaxed mb-5"><span class="text-vb-dark font-medium">Phone:</span> +91 9999999999</p>
+          <a href="/about" class="text-[11px] font-semibold uppercase tracking-[0.18em] text-vb-dark flex items-center gap-1.5 hover:text-vb-tan transition-colors mb-5">
+            Learn More <span aria-hidden>→</span>
+          </a>
+        </div>
+        <!-- Location Map (hidden on mobile) -->
+        <div class="hidden sm:block w-full max-w-[280px] rounded-2xl overflow-hidden border border-vb-beige shadow-sm">
+          <iframe
+            title="Vibird Skin Science - 11°15'37.9&quot;N 75°46'41.5&quot;E"
+            src="https://www.google.com/maps?q=11.260528,75.778194&z=18&t=k&output=embed"
+            width="280" height="120" style="border:0;" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="hidden sm:block">
+        <h4 class="text-[11px] font-semibold uppercase tracking-[0.22em] text-vb-dark mb-5">Quick Links</h4>
+        <ul class="space-y-3">
+          <li><a href="#products" class="text-[13px] text-stone-500 hover:text-vb-dark transition-colors">Shop All</a></li>
+          <li><a href="/about" class="text-[13px] text-stone-500 hover:text-vb-dark transition-colors">About Us</a></li>
+          <li><a href="#"         class="text-[13px] text-stone-500 hover:text-vb-dark transition-colors">Ingredients</a></li>
+          <li><a href="/learn" class="text-[13px] text-stone-500 hover:text-vb-dark transition-colors">Skin Education</a></li>
+          <li><a href="#contact"  class="text-[13px] text-stone-500 hover:text-vb-dark transition-colors">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Community / Email -->
+      <div>
+        <h4 class="text-[11px] font-semibold uppercase tracking-[0.22em] text-vb-dark mb-5">Join Our Community</h4>
+        <p class="text-[13px] text-stone-500 mb-5 leading-relaxed">Get exclusive offers, skincare tips, and updates.</p>
+        <form action="https://formspree.io/f/xjgqnygy" method="POST">
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="Enter your email"
+            class="w-full rounded-full border border-vb-beige bg-white px-5 py-3 text-[13px] text-stone-700 placeholder-stone-400 outline-none focus:border-vb-tan mb-2.5 transition-colors"
+          />
+          <button type="submit" class="w-full rounded-full bg-vb-dark text-white text-[10px] font-semibold tracking-[0.28em] uppercase py-3.5 hover:bg-vb-brown transition-colors">
+            Subscribe
+          </button>
+        </form>
+      </div>
+
+      <!-- Logo + Social -->
+      <div class="flex flex-col items-center text-center">
+        <a href="#" class="flex flex-col items-center gap-2 mb-6">
+          <img src="/src/Images/other/logo.avif" alt="Vibird Skin Science" width="58" height="58"
+               class="w-[58px] h-[58px] object-contain mix-blend-multiply" />
+          <div>
+            <p class="font-serif text-[21px] font-semibold tracking-[0.1em] text-vb-dark">VIBIRD</p>
+            <p class="text-[10px] tracking-[0.22em] uppercase text-vb-tan">Skin Science</p>
+          </div>
+        </a>
+
+        <!-- Social -->
+        <div class="flex gap-5">
+          <!-- Gmail -->
+          <a href="mailto:help@vibirdskin.com" aria-label="Gmail" class="text-vb-dark hover:text-vb-tan transition-colors">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="M2 7l10 7 10-7"/>
+            </svg>
+          </a>
+          <!-- Phone -->
+          <a href="tel:+919999999999" aria-label="Phone" class="text-vb-dark hover:text-vb-tan transition-colors">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.65 2.81a2 2 0 0 1-.45 2.11L8.04 9.91a16 16 0 0 0 6.05 6.05l1.27-1.27a2 2 0 0 1 2.11-.45c.91.3 1.85.52 2.81.65A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </a>
+          <!-- WhatsApp -->
+          <a href="https://wa.me/919999999999" target="_blank" rel="noopener" aria-label="WhatsApp" class="text-vb-dark hover:text-vb-tan transition-colors">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42-.14 0-.31-.02-.47-.02-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/>
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a href="#" aria-label="Instagram" class="text-vb-dark hover:text-vb-tan transition-colors">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="2"/>
+            </svg>
+          </a>
+          <!-- Facebook -->
+          <a href="#" aria-label="Facebook" class="text-vb-dark hover:text-vb-tan transition-colors">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+          <!-- YouTube -->
+          <a href="#" aria-label="YouTube" class="text-vb-dark hover:text-vb-tan transition-colors">
+            <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+              <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+              <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ════════════════════════════════════════
+       COPYRIGHT BAR
+  ════════════════════════════════════════ -->
+  <div class="bg-vb-warm border-t border-vb-beige py-4 px-6">
+    <div class="max-w-[1440px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <p class="text-[11px] text-stone-400">© 2026 Vibird Skin Science™ · Vibird International Pvt. Ltd. All rights reserved.</p>
+      <div class="flex items-center gap-4 text-[11px] text-stone-400">
+        <a href="/privacy" class="hover:text-vb-dark transition-colors">Privacy Policy</a>
+        <span>|</span>
+        <a href="/terms" class="hover:text-vb-dark transition-colors">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Chat Assistant -->
+  <div id="chatbot" class="chatbot" aria-live="polite">
+    <section id="chatbot-panel" class="chatbot-panel" aria-labelledby="chatbot-title" hidden>
+      <div class="chatbot-head">
+        <div>
+          <p class="chatbot-kicker">Vibird Assistant</p>
+          <h2 id="chatbot-title">Skin care help</h2>
+        </div>
+        <button id="chatbot-close" class="chatbot-icon-btn" type="button" aria-label="Close chat">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M18 6 6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <div id="chatbot-messages" class="chatbot-messages">
+        <div class="chatbot-message bot">
+          Hi, I can help with product info, launch updates, consultations, and contact details.
+        </div>
+      </div>
+
+      <div class="chatbot-quick" aria-label="Quick chat questions">
+        <button type="button" data-chat-question="Which product should I start with?">Start routine</button>
+        <button type="button" data-chat-question="When are products launching?">Launch update</button>
+        <button type="button" data-chat-question="How can I contact Vibird?">Contact</button>
+      </div>
+
+      <form id="chatbot-form" class="chatbot-form">
+        <label class="sr-only" for="chatbot-input">Ask Vibird Assistant</label>
+        <input id="chatbot-input" type="text" autocomplete="off" placeholder="Ask a question..." />
+        <button type="submit" aria-label="Send message">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m22 2-7 20-4-9-9-4Z"/>
+            <path d="M22 2 11 13"/>
+          </svg>
+        </button>
+      </form>
+    </section>
+
+    <a class="whatsapp-float" href="https://wa.me/919999999999" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42-.14 0-.31-.02-.47-.02-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/>
+      </svg>
+    </a>
+
+    <button id="chatbot-toggle" class="chatbot-toggle" type="button" aria-label="Open chat assistant" aria-expanded="false" aria-controls="chatbot-panel">
+      <svg class="chatbot-open-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/>
+        <path d="M8 9h8M8 13h5"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       PRODUCT DETAIL MODAL
+  ════════════════════════════════════════ -->
+  <div id="product-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-vb-dark/60 backdrop-blur-sm" onclick="closeProduct()"></div>
+
+    <!-- Dialog -->
+    <div id="product-dialog" class="relative w-full max-w-3xl max-h-[88vh] overflow-y-auto bg-vb-warm rounded-2xl shadow-2xl flex flex-col md:flex-row transition-all duration-300 scale-95 opacity-0">
+      <!-- Close -->
+      <button type="button" onclick="closeProduct()" aria-label="Close" class="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/90 text-vb-dark flex items-center justify-center shadow hover:bg-vb-dark hover:text-white transition-colors">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+
+      <!-- Image side -->
+      <div id="modal-image" class="relative md:w-2/5 min-h-[220px] md:min-h-full flex items-center justify-center p-8 shrink-0 overflow-hidden">
+        <img id="modal-img" src="" alt="" class="hidden w-full h-full object-cover absolute inset-0" />
+        <div id="modal-shape" class="relative flex flex-col items-center opacity-85"></div>
+      </div>
+
+      <!-- Text side -->
+      <div class="md:w-3/5 p-8 md:p-10">
+        <p id="modal-status" class="text-[9px] font-semibold tracking-[0.3em] uppercase text-vb-tan mb-3"></p>
+        <h3 id="modal-title" class="font-serif text-[26px] font-semibold text-vb-dark leading-tight mb-1"></h3>
+        <p id="modal-subtitle" class="text-[14px] text-stone-500 mb-5"></p>
+        <p id="modal-desc" class="text-[14px] text-stone-600 leading-relaxed mb-6"></p>
+        <p class="text-[10px] font-semibold tracking-[0.25em] uppercase text-vb-dark mb-3">Key Focus</p>
+        <ul id="modal-focus" class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-[13px] text-stone-600"></ul>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
