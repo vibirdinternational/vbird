@@ -534,3 +534,63 @@ a:focus-visible, button:focus-visible, input:focus-visible {
     transition: none;
   }
 }
+
+/* Footer contact details: mobile only (matches Tailwind sm breakpoint) */
+@media (min-width: 640px) { .mobile-only-contact { display: none; } }
+@media (min-width: 768px) {
+  .hero-feature-icons {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(.22,1,.36,1), opacity 0.45s ease;
+  }
+  .hero-feature {
+    transform: translateY(0);
+    transition: transform 0.6s cubic-bezier(.22,1,.36,1), opacity 0.45s ease;
+    will-change: transform, opacity;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-feature-icons {
+    position: absolute;
+    right: 1.5rem;
+    bottom: 4rem;
+    padding-top: 0;
+    gap: 1.5rem;
+    animation: hero-icons-tablet-shift 0.65s cubic-bezier(.22,1,.36,1) both;
+  }
+  .hero-feature {
+    animation: hero-feature-tablet-settle 0.65s cubic-bezier(.22,1,.36,1) both;
+  }
+  .hero-feature:nth-child(2) {
+    animation-delay: 0.06s;
+  }
+  .hero-feature:nth-child(3) {
+    animation-delay: 0.12s;
+  }
+}
+@keyframes hero-icons-tablet-shift {
+  from {
+    opacity: 0;
+    transform: translateX(-3rem) translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes hero-feature-tablet-settle {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-feature-icons,
+  .hero-feature {
+    animation: none !important;
+    transition: none !important;
+  }
+}

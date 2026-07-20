@@ -6,10 +6,10 @@
   <!-- Open Graph / Social Sharing -->
 <meta property="og:title" content="VIBIRD SKIN SCIENCE™ — Performance Skincare for Hot & Humid Lifestyles" />
 <meta property="og:description" content="Climate-inspired skincare engineered for tropical climates. Lightweight, breathable, fast-absorbing." />
-<meta property="og:image" content="https://vibirdskinscience.com/src/Images/Background/desktop.webp"/>
+<meta property="og:image" content="https://www.vibirdskinscience.com/src/Images/Background/desktop.webp"/>
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:url" content="https://vibirdskinscience.com/" />
+<meta property="og:url" content="https://www.vibirdskinscience.com/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Vibird Skin Science" />
 
@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="VIBIRD SKIN SCIENCE™" />
 <meta name="twitter:description" content="Performance skincare engineered for hot & humid lifestyles." />
-<meta name="twitter:image" content="https://vibirdskinscience.com/src/Images/other/logo.avif" />
+<meta name="twitter:image" content="https://www.vibirdskinscience.com/src/Images/other/logo.avif" />
 
 
 <!--roy start-->
@@ -28,78 +28,16 @@
 <!--roy end-->
 
 
-  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-  <link rel="icon" href="/src/Images/other/logo.avif" alt="Vibird Skin Science Logo" />
+  <link rel="icon" href="/src/Images/other/logo.avif" />
   <!-- Preload hero background (LCP) + self-hosted fonts so they fetch immediately -->
   <!-- Preload the hero background matching the current screen orientation -->
-  <link rel="preload" as="image" href="/src/Images/Background/mobile.webp" media="(max-width: 767px)" fetchpriority="high" alt="skin care product" />
-  <link rel="preload" as="image" href="/src/Images/Background/tablet.webp" media="(min-width: 768px) and (max-width: 1023px)" fetchpriority="high" alt="skin care product" />
-  <link rel="preload" as="image" href="/src/Images/Background/desktop.webp" media="(min-width: 1024px)" fetchpriority="high" alt="skin care product" />
+  <link rel="preload" as="image" href="/src/Images/Background/mobile.webp" media="(max-width: 767px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="/src/Images/Background/tablet.webp" media="(min-width: 768px) and (max-width: 1023px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="/src/Images/Background/desktop.webp" media="(min-width: 1024px)" fetchpriority="high" />
   <link rel="preload" as="font" type="font/woff2" href="/src/fonts/playfair.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="/src/fonts/inter.woff2" crossorigin />
   <!-- Compiled CSS (render-critical, includes @font-face) -->
   <link rel="stylesheet" href="/src/css/tailwind.css" />
-  <style>
-    /* Footer contact details: mobile only (matches Tailwind sm breakpoint) */
-    @media (min-width: 640px) { .mobile-only-contact { display: none; } }
-    @media (min-width: 768px) {
-      .hero-feature-icons {
-        display: flex;
-        transition: transform 0.6s cubic-bezier(.22,1,.36,1), opacity 0.45s ease;
-      }
-      .hero-feature {
-        transform: translateY(0);
-        transition: transform 0.6s cubic-bezier(.22,1,.36,1), opacity 0.45s ease;
-        will-change: transform, opacity;
-      }
-    }
-    @media (min-width: 768px) and (max-width: 1023px) {
-      .hero-feature-icons {
-        position: absolute;
-        right: 1.5rem;
-        bottom: 4rem;
-        padding-top: 0;
-        gap: 1.5rem;
-        animation: hero-icons-tablet-shift 0.65s cubic-bezier(.22,1,.36,1) both;
-      }
-      .hero-feature {
-        animation: hero-feature-tablet-settle 0.65s cubic-bezier(.22,1,.36,1) both;
-      }
-      .hero-feature:nth-child(2) {
-        animation-delay: 0.06s;
-      }
-      .hero-feature:nth-child(3) {
-        animation-delay: 0.12s;
-      }
-    }
-    @keyframes hero-icons-tablet-shift {
-      from {
-        opacity: 0;
-        transform: translateX(-3rem) translateY(1rem);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-    @keyframes hero-feature-tablet-settle {
-      from {
-        opacity: 0;
-        transform: translateY(1.25rem);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .hero-feature-icons,
-      .hero-feature {
-        animation: none !important;
-        transition: none !important;
-      }
-    }
-  </style>
   <script defer src="/src/js/speed-insights.js"></script>
   <script defer src="/src/js/main.js"></script>
   <!-- Vercel Web Analytics -->
@@ -171,7 +109,7 @@
         <div class="mt-auto hero-stagger">
           <p class="hero-item hidden md:block text-[10px] font-semibold tracking-[0.4em] uppercase text-vb-tan mb-5">Climate-Inspired Skin Science</p>
           <h1 class="hero-item font-serif text-[52px] md:text-[62px] font-semibold leading-[1.08] text-vb-dark mb-6">
-            VIBIRD
+            VIBIRD<span class="sr-only"> — Performance Skincare for Hot &amp; Humid Lifestyles</span>
           </h1>
           <p class="hero-item hidden md:block text-[15px] text-stone-600 leading-relaxed mb-10 max-w-sm">
             Performance Skincare for Hot &amp; Humid Lifestyles
